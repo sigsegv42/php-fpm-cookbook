@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-define :php_fpm_pool, :template => 'pool.conf.erb', :enable => true do
+define :php_fpm_pool, template: 'pool.conf.erb', enable: true do
 
   pool_name = params[:name]
 
