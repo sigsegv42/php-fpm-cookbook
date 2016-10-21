@@ -11,6 +11,6 @@ source_url       'https://github.com/tecnocratica/php-fpm-cookbook'
 depends 'apt'
 depends 'yum', '>= 3.0'
 
-%w{ debian ubuntu centos redhat fedora }.each do |os|
+%w(debian ubuntu centos redhat fedora).each do |os|
   supports os
 end
