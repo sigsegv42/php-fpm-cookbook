@@ -69,7 +69,7 @@ default['php-fpm']['catch_workers_output'] = 'no'
 default['php-fpm']['security_limit_extensions'] = '.php'
 default['php-fpm']['listen_mode'] = '0660'
 default['php-fpm']['listen'] = '/var/run/php-fpm-%{pool_name}.sock'
-default['php-fpm']['status_path'] = '/status'
+default['php-fpm']['status_path'] = nil
 
 default['php-fpm']['pools'] = {
   'www' => {
