@@ -46,15 +46,15 @@ end
 
 service_provider = nil
 # this is actually already done in chef, but is kept here for older chef releases
-if platform?('ubuntu') and node['platform_version'].to_f.between?(13.10, 14.10)
+if platform?('ubuntu') && node['platform_version'].to_f.between?(13.10, 14.10)
   service_provider = ::Chef::Provider::Service::Upstart
 end
 
 directory node['php-fpm']['log_dir']
 
-service "php-fpm" do
+service 'php-fpm' do
   provider service_provider if service_provider
   service_name php_fpm_service_name
   supports :start => true, :stop => true, :restart => true, :reload => true
-  action [ :enable, :start ]
+  action [ :enable, :restart ]
 end
