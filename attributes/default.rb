@@ -30,16 +30,14 @@ when 'rhel', 'fedora'
 else
   user = 'www-data'
   group = 'www-data'
-  if platform?('ubuntu') and node['platform_version'].to_f >= 16.04
+  if platform?('ubuntu') && node['platform_version'].to_f >= 16.04
     php_conf_dir = '/etc/php/7.0'
-    php_fpm_name = 'php7.0-fpm'
   else
     php_conf_dir = '/etc/php5'
-    php_fpm_name = 'php5-fpm'
   end
   conf_dir = "#{php_conf_dir}/fpm/conf.d"
   pool_conf_dir = "#{php_conf_dir}/fpm/pool.d"
-  if platform?('ubuntu') and node['platform_version'].to_f <= 10.04
+  if platform?('ubuntu') && node['platform_version'].to_f <= 10.04
     conf_file = "#{php_conf_dir}/fpm/php5-fpm.conf"
   else
     conf_file = "#{php_conf_dir}/fpm/php-fpm.conf"
