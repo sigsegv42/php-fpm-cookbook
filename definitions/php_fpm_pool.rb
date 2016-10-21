@@ -53,7 +53,7 @@ define :php_fpm_pool, template: 'pool.conf.erb', enable: true do
         request_slowlog_timeout: params[:request_slowlog_timeout] || false,
         php_options: params[:php_options] || {},
         request_terminate_timeout: params[:request_terminate_timeout] || node['php-fpm']['request_terminate_timeout'],
-        pm_status_path: params[:pm_status_path],
+        status_path: params[:status_path] || node['php-fpm']['status_path'],
         params: params
       )
       notifies :restart, 'service[php-fpm]'
