@@ -22,12 +22,12 @@ include_recipe 'php-fpm::repository' unless node['php-fpm']['skip_repository_ins
 include_recipe 'apt::default' if node['platform_family'] == 'debian'
 
 if node['php-fpm']['package_name'].nil?
-  if platform_family?("rhel", "fedora")
-    php_fpm_package_name = "php-fpm"
-  elsif platform?('ubuntu') and node['platform_version'].to_f >= 16.04
-    php_fpm_package_name = "php7.0-fpm"
+  if platform_family?('rhel', 'fedora')
+    php_fpm_package_name = 'php-fpm'
+  elsif platform?('ubuntu') && node['platform_version'].to_f >= 16.04
+    php_fpm_package_name = 'php7.0-fpm'
   else
-    php_fpm_package_name = "php5-fpm"
+    php_fpm_package_name = 'php5-fpm'
   end
 else
   php_fpm_package_name = node['php-fpm']['package_name']
