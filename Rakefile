@@ -8,6 +8,17 @@ end
 begin
   require 'stove/rake_task'
   Stove::RakeTask.new
-rescue LoadErro
-  pust ">>>>> Stove gem not loaded, omitting tasks" unless ENV['CI']
+rescue LoadError
+  puts ">>>>> Stove gem not loaded, omitting tasks" unless ENV['CI']
+end
+
+require 'foodcritic'
+FoodCritic::Rake::LintTask.new do |t|
+  t.options = { :fail_tags => ['any'] }
+end
+
+require 'cookstyle'
+require 'rubocop/rake_task'
+RuboCop::RakeTask.new do |task|
+  task.options << '--display-cop-names'
 end
