@@ -42,8 +42,8 @@ else
   else
     conf_file = "#{php_conf_dir}/fpm/php-fpm.conf"
   end
-  error_log = '/var/log/#{php_fpm_name}.log'
-  pid = '/var/run/#{php_fpm_name}.pid'
+  error_log = '/var/log/php7.0-fpm.log'
+  pid = '/var/run/php7.0-fpm.pid'
 end
 
 default['php-fpm']['user'] = user
